@@ -1,0 +1,213 @@
+:root {
+    /* Modern Messenger Color Palette */
+    --primary: #0084ff; /* Messenger blue */
+    --primary-hover: #0073e6; 
+    --primary-active: #0062cc;
+    --secondary: #00b2ff; /* Accent color */
+    --text: #050505; /* Almost black */
+    --text-light: #65676b; /* Secondary text */
+    --bg: #f0f2f5; /* Light gray background */
+    --surface: #ffffff; /* Message bubbles */
+    --surface-secondary: #f5f6f7; /* Alternate background */
+    --surface-dark: #e4e6eb; /* Darker message bubbles */
+    --border: #dddfe2; /* Light borders */
+    --border-focus: #0084ff;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --radius-sm: 8px; /* Soft rounded corners */
+    --radius-md: 12px; /* More pronounced rounding */
+    --radius-lg: 18px; /* For message bubbles */
+    --transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.4;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 20px;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+/* Form Header */
+.form-container h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+/* Form Elements */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form label {
+    font-size: 1rem;
+    color: var(--text);
+}
+
+form input,
+form textarea {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface-secondary);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: var(--border-focus);
+    background: var(--surface);
+    box-shadow: 0 0 0 2px rgba(0, 132, 255, 0.2);
+}
+
+form button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+form button:hover {
+    background: var(--primary-hover);
+}
+
+form button:active {
+    background: var(--primary-active);
+}
+
+/* Recent Messages Section */
+.recent-messages-container {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.recent-messages-container h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.recent-messages-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-messages-container li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--surface-secondary);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+.recent-messages-container li strong {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.recent-messages-container li p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--border);
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.empty-state p {
+    font-size: 0.9375rem;
+    max-width: 400px;
+}
+
+/* Scrollbar Styling */
+.recent-messages-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.recent-messages-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.recent-messages-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.recent-messages-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .form-container {
+        width: 90%;
+    }
+
+    .recent-messages-container {
+        width: 90%;
+    }
+
+    form button {
+        width: 100%;
+    }
+}
